@@ -1,0 +1,78 @@
+@use "./variables";
+@use "./fonts";
+
+@mixin tablet {
+  @media (min-width: 767px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin labelButtonText($color) {
+  font-size: 4rem;
+  font-family: "Avenir-Bold";
+  line-height: 20px;
+  color: $color;
+}
+
+@mixin bodyText($color) {
+  font-size: calc(1rem + 10px);
+  font-family: "Avenir-Regular";
+  line-height: 18px;
+  color: $color;
+}
+
+@mixin bodyTextBig($color) {
+  font-size: calc(1rem + 11px);
+  font-family: "Avenir-Regular";
+  line-height: 22px;
+  color: $color;
+}
+
+@mixin pageHeader($color) {
+  font-size: 8rem;
+  font-family: "Avenir-Bold";
+  line-height: 32px;
+  color: $color;
+}
+
+@mixin pageHeaderBig($color) {
+  font-size: 11rem;
+  font-family: "Avenir-Bold";
+  line-height: 44px;
+  color: $color;
+}
+
+@mixin subHeader($color) {
+  font-size: calc(1rem + 10px);
+  font-family: "Avenir-Bold";
+  line-height: 18px;
+  color: $color;
+}
+
+@mixin subHeaderBig($color) {
+  font-size: calc(1rem + 11px);
+  font-family: "Avenir-Bold";
+  line-height: 22px;
+  color: $color;
+}
+
+@mixin sectionHeader($color) {
+  font-size: 4rem;
+  font-family: "Avenir-Regular";
+  line-height: 20px;
+  color: $color;
+}
+
+@mixin formField() {
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  background-color: variables.$formFieldColor;
+  border: 1px solid variables.$outlineColor;
+}
+

@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.profile-pic {
+    background-color: variables.$outlineColor;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    @include mixins.tablet{
+      width: 40px;
+      height: 40px;
+    };
+
+    &--image {
+      background-image: url("../../assets/images/Mohan-muruge.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  

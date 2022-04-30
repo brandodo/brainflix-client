@@ -1,0 +1,17 @@
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/fonts";
+
+.title {
+  @include mixins.pageHeader(variables.$primaryTextColor);
+  padding: variables.$padding-inc * 6 0 variables.$padding-inc * 4 0;
+
+  @include mixins.tablet {
+    @include mixins.pageHeaderBig(variables.$primaryTextColor);
+    padding: variables.$padding-inc * 9 0 0 0;
+  }
+
+  @include mixins.desktop {
+    padding-right: variables.$padding-inc * 6;
+  }
+}

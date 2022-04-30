@@ -1,0 +1,145 @@
+@use "../../../styles/partials/mixins";
+@use "../../../styles/partials/variables";
+@use "../../../styles/partials/fonts";
+
+.details {
+  padding: 0 variables.$padding-inc * 4;
+
+  @include mixins.tablet {
+    padding: 0 variables.$padding-inc * 9;
+
+    & > hr:nth-of-type(1) {
+      display: none;
+    }
+  }
+
+  @include mixins.desktop {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: variables.$padding-inc * 4 0 variables.$padding-inc * 4 0;
+
+    @include mixins.tablet {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: variables.$padding-inc * 2;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.tablet {
+      flex-direction: row;
+    }
+
+    @include mixins.desktop {
+      padding-right: variables.$padding-inc * 6;
+    }
+  }
+
+  &__author {
+    @include mixins.subHeader(variables.$primaryTextColor);
+    font-weight: 700;
+    padding-bottom: variables.$padding-inc * 2;
+
+    @include mixins.tablet {
+      @include mixins.subHeaderBig(variables.$primaryTextColor);
+      padding-right: variables.$padding-inc * 3;
+      padding-bottom: 0;
+    }
+  }
+
+  &__timestamp {
+    @include mixins.bodyText(variables.$secondaryTextColor);
+    padding-top: variables.$padding-inc * 2;
+
+    @include mixins.tablet {
+      @include mixins.bodyTextBig(variables.$secondaryTextColor);
+      padding-top: 0;
+    }
+  }
+
+  &__views {
+    display: flex;
+    padding-bottom: variables.$padding-inc * 2;
+
+    @include mixins.tablet {
+      @include mixins.bodyTextBig(variables.$secondaryTextColor);
+      padding-bottom: 0;
+    }
+
+    &-icon {
+      height: 6rem;
+      padding-right: variables.$padding-inc * 2;
+
+      @include mixins.tablet {
+        height: 5rem;
+      }
+    }
+
+    &-count {
+      @include mixins.bodyText(variables.$secondaryTextColor);
+    }
+  }
+
+  &__likes {
+    display: flex;
+    padding-top: variables.$padding-inc * 2;
+
+    @include mixins.tablet {
+      @include mixins.bodyTextBig(variables.$secondaryTextColor);
+      padding-left: variables.$padding-inc * 8;
+      padding-top: 0;
+    }
+
+    &-icon {
+      height: 6rem;
+      padding-right: variables.$padding-inc * 2;
+
+      @include mixins.tablet {
+        height: 5rem;
+      }
+
+      @include mixins.desktop {
+        &:hover {
+          cursor: pointer;
+          height: 6rem;
+        }
+      }
+    }
+
+    &-count {
+      @include mixins.bodyText(variables.$secondaryTextColor);
+    }
+  }
+
+  &__description {
+    @include mixins.bodyText(variables.$primaryTextColor);
+    padding: variables.$padding-inc * 4 0 variables.$padding-inc * 4 0;
+
+    @include mixins.tablet {
+      @include mixins.bodyTextBig(variables.$primaryTextColor);
+      padding: variables.$padding-inc * 6 0 variables.$padding-inc * 8 0;
+    }
+
+    @include mixins.desktop {
+      padding-bottom: variables.$padding-inc * 12;
+      padding-right: variables.$padding-inc * 8;
+    }
+  }
+}

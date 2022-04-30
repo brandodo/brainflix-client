@@ -1,0 +1,104 @@
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: variables.$padding-inc * 4;
+
+  @include mixins.tablet {
+    align-items: center;
+    padding: variables.$padding-inc * 4 variables.$padding-inc * 9;
+  }
+
+  @include mixins.desktop {
+    padding: variables.$padding-inc * 4 variables.$padding-inc * 30;
+  }
+
+  &__logo {
+    &-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding-bottom: variables.$padding-inc * 4;
+
+      @include mixins.tablet {
+        width: fit-content;
+        padding: 0;
+      }
+    }
+
+    &-image {
+      width: 120px;
+      height: 25px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include mixins.tablet {
+      width: calc(100% - 190px);
+    }
+  }
+
+  &__search-bar {
+    @include mixins.labelButtonText(variables.$primaryTextColor);
+    @include mixins.formField();
+    height: 36px;
+    width: calc(100% - 60px);
+    margin-right: auto;
+    padding-top: variables.$padding-inc;
+    padding-right: variables.$padding-inc * 3;
+    padding-left: variables.$padding-inc * 9;
+    border-radius: 4px;
+    background-image: url("../../assets/images/icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: 12px;
+
+    &:active {
+      border: 2px solid variables.$primaryCTAColor;
+    }
+
+    @include mixins.tablet {
+      width: 260px;
+      height: 40px;
+      margin: 0;
+    }
+  }
+
+  &__pic {
+    @include mixins.tablet {
+      order: 1;
+    }
+  }
+
+  &__btn {
+    &-container {
+      width: 100%;
+      padding-top: variables.$padding-inc * 4;
+
+      @include mixins.tablet {
+        width: 150px;
+        padding: 0;
+        margin: 0 variables.$padding-inc * 6;
+      }
+    }
+
+    &-upload {
+      background-image: url("../../assets/images/icons/upload.svg");
+      background-repeat: no-repeat;
+      background-position: 12px;
+      background-size: 8rem;
+
+      @include mixins.tablet {
+        background-size: 7rem;
+        background-position-y: 10px;
+      }
+    }
+  }
+}

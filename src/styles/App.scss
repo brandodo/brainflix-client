@@ -1,0 +1,36 @@
+@use "./partials/variables";
+@use "./partials/mixins";
+@use "./partials/fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: variables.$fontRegular;
+  font-size: 3px;
+}
+
+#root {
+  width: 100%;
+  position: relative;
+}
+
+.main-wrapper {
+  @include mixins.desktop {
+    display: flex;
+    padding: 0 variables.$padding-inc * 30;
+  }
+}
+
+div.body-wrapper + hr {
+  display: none;
+
+  @include mixins.desktop {
+    display: inline;
+  }
+}
+
+.body-wrapper {
+  @include mixins.desktop {
+    width: 75%;
+  }
+}

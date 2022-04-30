@@ -1,0 +1,105 @@
+@use "../../../styles/partials/mixins";
+@use "../../../styles/partials/variables";
+
+.playlist {
+  padding: variables.$padding-inc * 4;
+
+  @include mixins.tablet {
+    padding: variables.$padding-inc * 9;
+  }
+
+  @include mixins.desktop {
+    padding-right: 0;
+  }
+
+  &__header {
+    @include mixins.sectionHeader(variables.$secondaryTextColor);
+    padding-bottom: variables.$padding-inc * 3;
+
+    @include mixins.tablet {
+      padding-bottom: variables.$padding-inc * 3;
+    }
+  }
+
+  &__video {
+    &-link {
+      text-decoration: none;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: flex-start;
+      padding: variables.$padding-inc * 2 0;
+      width: 100%;
+      z-index: 1;
+
+      @include mixins.tablet {
+        padding: variables.$padding-inc * 3 0;
+        width: 45%;
+      }
+
+      @include mixins.desktop() {
+        width: 100%;
+
+        &:hover {
+          cursor: pointer;
+          border-radius: 4px;
+          box-shadow: -2px 2px 7px variables.$videoColor;
+          transition: all 200ms ease;
+          border-left: 6px solid variables.$primaryCTAColor;
+          padding-left: variables.$padding-inc * 4;
+          padding-right: variables.$padding-inc * 2;
+        }
+      }
+    }
+
+    &-left {
+      width: 120px;
+      height: 65px;
+      object-fit: cover;
+      border: none;
+      border-radius: 4px;
+
+      @include mixins.tablet {
+        height: 70px;
+      }
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      width: calc(100% - 125px);
+      padding-left: variables.$padding-inc * 4;
+    }
+
+    &-header {
+      @include mixins.subHeader(variables.$primaryTextColor);
+      padding-bottom: variables.$padding-inc * 2;
+
+      @include mixins.tablet {
+        display: none;
+      }
+
+      &-tab-desk {
+        @extend .playlist__video-header;
+        display: none;
+
+        @include mixins.tablet {
+          @include mixins.subHeaderBig(variables.$primaryTextColor);
+          display: inline;
+        }
+      }
+    }
+
+    &-channel {
+      @include mixins.bodyText(variables.$primaryTextColor);
+
+      @include mixins.tablet {
+        @include mixins.bodyTextBig(variables.$primaryTextColor);
+      }
+    }
+  }
+}
